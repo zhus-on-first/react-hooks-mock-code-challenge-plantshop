@@ -1,21 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PlantCard from "./PlantCard";
 
 function PlantList() {
-  const plants = [
-    {
-      id: 1,
-      name: "Aloe",
-      image: "./images/aloe.jpg",
-      price: 15.99,
-    },
-    {
-      id: 2,
-      name: "ZZ Plant",
-      image: "./images/zz-plant.jpg",
-      price: 25.98,
-    },
-  ];
+  const [plants, setPlants] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:6001/plants")
+      .then((response) => response.json())
+      .then((plants) => setPlants(plants));
+  }, []);
 
   return (
     <ul className="cards">
