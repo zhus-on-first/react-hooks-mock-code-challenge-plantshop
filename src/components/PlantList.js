@@ -2,16 +2,26 @@ import React from "react";
 import PlantCard from "./PlantCard";
 
 function PlantList() {
-  const plant = {
-    id: 1,
-    name: "Aloe",
-    image: "./images/aloe.jpg",
-    price: 15.99,
-  };
+  const plants = [
+    {
+      id: 1,
+      name: "Aloe",
+      image: "./images/aloe.jpg",
+      price: 15.99,
+    },
+    {
+      id: 2,
+      name: "ZZ Plant",
+      image: "./images/zz-plant.jpg",
+      price: 25.98,
+    },
+  ];
 
   return (
     <ul className="cards">
-      <PlantCard plant={plant} />
+      {plants.map((plant) => (
+        <PlantCard key={plants.id} plant={plant} />
+      ))}
     </ul>
   );
 }
