@@ -14,6 +14,9 @@ function NewPlantForm({ addNewPlant }) {
       price: plantPrice,
     };
     addNewPlant(newPlant);
+    setPlantImage("");
+    setPlantName("");
+    setPlantPrice("");
   }
 
   return (
